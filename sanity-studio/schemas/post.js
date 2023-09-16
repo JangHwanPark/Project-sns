@@ -57,5 +57,22 @@ export default {
         }
       ]
     }
-  ]
+  ],
+  /** admin - 사용자 지정 설정 */
+  preview: {
+    select: {
+      title: 'comments.0.comment',
+      authorName: 'author.name',
+      authorUsername: 'author.username',
+      media: 'photo'
+    },
+    prepare(selection) {
+      const {title, authorName, authorUsername, media} = selection;
+      return {
+        title,
+        subtitle: `by ${authorName} (${authorUsername})`,
+        media
+      }
+    }
+  }
 }

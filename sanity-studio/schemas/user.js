@@ -67,5 +67,12 @@ export default {
       ],
       validation: (Rule) => Rule.unique(),
     }
-  ]
+  ],
+  /** admin - 사용자 지정 설정 */
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: 'username'
+    }
+  }
 }
