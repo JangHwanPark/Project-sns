@@ -49,6 +49,7 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
+          <ColorButton text='Sign In' onClick={()=> signIn()}/>
           {session ? (
               <ColorButton text='Sign In' onClick={()=> signIn()}/>
           ) : (
