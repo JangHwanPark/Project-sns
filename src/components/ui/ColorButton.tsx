@@ -3,7 +3,7 @@ import React from 'react'
 type Props = {
   text: string;
   onClick: () => void;
-  size: 'smail' | 'big';
+  size?: 'smail' | 'big';
 }
 
 const ColorButton = ({text, onClick, size = 'smail'}: Props) => {

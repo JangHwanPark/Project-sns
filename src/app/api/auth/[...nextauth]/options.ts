@@ -30,17 +30,16 @@ export const options: NextAuthOptions = {
   },
   /** ### callbackUrl: 인증 후 사용자가 리다이렉션될 URL 지정 */
   callbacks: {
-    async signIn({user, account, profile, email, credentials}) {
-      return true
-    },
-    async redirect({url, baseUrl}) {
-      return baseUrl
-    },
-    async session({session, user, token}) {
+    async session({session}) {
+      console.log(session)
+      const user = session?.user;
+      if (user){
+        session.user = {
+          ...user,
+          username: user.email?.split('@')[0] || '',
+        }
+      }
       return session
-    },
-    async jwt({token, user, account, profile, isNewUser}) {
-      return token
     }
   },
   /** ### secret key : 사용자 세션 or JWT 토큰 서명 */
