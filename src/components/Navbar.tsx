@@ -61,9 +61,9 @@ const Navbar = () => {
           )}
           <li>
             {session ? (
-              <ColorButton text='Sign In' onClick={()=> signOut()}/>
+              <ColorButton text='Sign Out' onClick={()=> signOut()}/>
             ) : (
-              <ColorButton text='Sign Out' onClick={()=> signIn()}/>
+              <ColorButton text='Sign In' onClick={()=> signIn()}/>
             )}
           </li>
         </ul>
