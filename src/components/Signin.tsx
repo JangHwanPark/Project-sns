@@ -8,7 +8,7 @@ type Props = {
   callbackUrl: string
 }
 
-const Signin = ({providers, callbackUrl}: Props) => {
+const SignIn = ({providers, callbackUrl}: Props) => {
   return (
     <>
       {Object.values(providers).map(({name, id}) => (
@@ -23,4 +23,4 @@ const Signin = ({providers, callbackUrl}: Props) => {
   )
 }
 
-export default Signin
+export default SignIn

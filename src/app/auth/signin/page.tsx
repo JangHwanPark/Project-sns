@@ -3,7 +3,7 @@ import {getServerSession} from 'next-auth'
 import {options} from '@/app/api/auth/[...nextauth]/options'
 import {redirect} from 'next/navigation'
 import {getProviders} from 'next-auth/react'
-import Signin from '@/components/Signin'
+import SignIn from '@/components/Signin'
 
 type Props = {
   searchParams: {
@@ -19,7 +19,7 @@ const LoginPage = async ({ searchParams: {callbackUrl} }: Props) => {
   const providers = (await getProviders() ?? {});
   return (
     <section className='flex justify-center mt-24'>
-      <Signin providers={providers} callbackUrl={callbackUrl ?? '/'}/>
+      <SignIn providers={providers} callbackUrl={callbackUrl ?? '/'}/>
     </section>
   )
 }

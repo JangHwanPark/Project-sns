@@ -1,5 +1,6 @@
 import type {NextAuthOptions} from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
+import {addUser} from '@/service/user'
 
 export const options: NextAuthOptions = {
   /** ### 외부 공급자 (OAuth) */
@@ -30,6 +31,19 @@ export const options: NextAuthOptions = {
   },
   /** ### callbackUrl: 인증 후 사용자가 리다이렉션될 URL 지정 */
   callbacks: {
+    async signIn({ user: {id, name, image, email} }) {
+      /** 이메일이 없는경우 false 반환 */
+      if(!email) return false;
+      /** 이메일이 있는경우에만 addUser 반환 */
+      addUser({
+        id,
+        name: name || '',
+        image,
+        email,
+        username: email.split('@')[0],
+      })
+      return true;
+    },
     async session({session}) {
       console.log(session)
       const user = session?.user;
