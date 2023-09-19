@@ -33,9 +33,7 @@ const menu = [
 const Navbar = () => {
   /** pathName : 현재 경로를 가져옴 */
   const pathName = usePathname();
-  console.log(pathName)
   const { data: session } = useSession();
-  console.log(session)
   const user = session?.user;
 
   return (
@@ -55,7 +53,7 @@ const Navbar = () => {
           {user && (
             <li>
               <Link href={`user/${user.username}`}>
-                <Avatar image={user.image}/>
+                <Avatar image={user.image} size='small' highlight/>
               </Link>
             </li>
           )}
