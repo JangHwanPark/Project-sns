@@ -3,6 +3,7 @@ import type {Metadata} from 'next'
 import {Open_Sans} from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import AuthProvider from '@/context/AuthProvider'
+import SwrConfigContext from '@/context/SWRConfigContext'
 
 const openSans = Open_Sans({subsets: ['latin']})
 
@@ -19,7 +20,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <header className='sticky top-0 bg-white z-10 border-b'>
         <Navbar />
       </header>
-      <main>{children}</main>
+      <main>
+        <SwrConfigContext>
+          {children}
+        </SwrConfigContext>
+      </main>
     </AuthProvider>
     </body>
     </html>

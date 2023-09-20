@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
 import PostList from '@/components/PostList'
 import FollowingBar from '@/components/FollowingBar'
