@@ -3,6 +3,7 @@ import {getServerSession} from 'next-auth'
 import {options} from '@/app/api/auth/[...nextauth]/options'
 import {getUserByUsername} from '@/service/user'
 
+
 export async function GET(request: Request) {
   const session = await getServerSession(options);
   const user = session?.user;

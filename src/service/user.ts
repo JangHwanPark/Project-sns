@@ -45,7 +45,7 @@ export async function addUser({id, username, email, name, image}: OAuthUser) {
  */
 export async function getUserByUsername(username: string) {
   return client.fetch(
-    `*[_type == "user" && username == "${username}"]{
+    `*[_type == "user" && username == "${username}"][0]{
     ...,
     "id": _id,
     following[]->{username, image},

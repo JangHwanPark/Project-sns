@@ -9,7 +9,7 @@ export type User = {
   username: string;
   image?: string;
 }
-
+/** SimpleUser 는 기존에 있던 User 타입에서 "username"과 "image"를 Pick(가져옴) */
 export type SimpleUser = Pick<User, 'username' | 'image'>;
 
 export type DetailUser = User & {

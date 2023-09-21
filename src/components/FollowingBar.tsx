@@ -9,17 +9,16 @@ import Avatar from '@/components/Avatar'
 const FollowingBar = () => {
   const {data, error, isLoading} = useSWR<DetailUser>('/api/follow')
   const users = data?.following
-  console.log(`data?.following : ${users}`)
+
   return (
     <section>
-      { isLoading ? (
+      {isLoading ? (
           <FadeLoader color='red'/>
       ) : (
         (!users || users.length === 0) && <p>{`You don't' have following`}</p>
       )}
-      {users && users.length > 0 &&
-        <ul>
-          {users.map((image, username) => (
+      {users && users.length > 0 && <ul>
+          {users.map(({image, username}) => (
               <li key={username}>
                 <Link href={`/user/${username}`}>
                   <Avatar image={image} highlight/>
